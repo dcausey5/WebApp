@@ -8,7 +8,7 @@ const Home = () =>
         <div className="container home-page">
 
             <div className="text-zone">
-            <h1>Gun Violence & Household Income Data</h1>
+            <h1 className='Home'>Gun Violence & Household Income Data</h1>
             </div>
             <form>
             <label>User Name:

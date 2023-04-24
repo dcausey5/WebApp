@@ -1,3 +1,6 @@
+.database-container{
+  overflow: scroll;
+}
 h1{
   text-align: center;
   color: #fff;
@@ -16,6 +19,9 @@ h1{
   min-height: 0 !important;
   left: 0 !important;
 
+}
+line{
+  left: 10%;
 }
 tr{
   color: #fff;

@@ -8,6 +8,17 @@
   right: 0;
   overflow: hidden;
 }
+.about{
+  position: absolute;
+  font-size: 24px;
+left: 10%;
+top: 50%;
+transform: translateY(-50%);
+width: 35%;
+vertical-align: middle;
+display: table-cell;
+max-height: 90%;
+}
 
 .cubespinner {
   animation-name: spincube;
@@ -17,7 +28,9 @@
   transform-style: preserve-3d;
   transform-origin: 100px 100px 0;
   margin-left: calc(50% - 100px);
-
+p{
+  left:15% !important;
+}
   div {
     position: absolute;
     width: 200px;
