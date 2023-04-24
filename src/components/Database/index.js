@@ -1,16 +1,36 @@
 import { useEffect, useState } from 'react'
 import Loader from 'react-loaders'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { PieChart, Pie,LineChart,
-  ResponsiveContainer,
-  Legend, Tooltip,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid} from 'recharts';
+import { Line } from 'react-chartjs-2';
+import {faker} from "@faker-js/faker";
+
+
 import './index.scss'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+
 
 const Database = () => {
+
+  
 
   const data = [
     { name: "Anom", age: 19, gender: "Male" },
@@ -49,9 +69,40 @@ const Database = () => {
         fees: 8
     },
 ];
-
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const options = {
+  responsive: true,
+  plugins: {
+    
+    
+    title: {
+      display: true,
+      text: 'Chart.js Line Chart',
+      
+    },
+  },
+};
+const data1 = {
+  labels,
+  datasets: [
+    {
+      label: 'Dataset 1',
+      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    },
+    {
+      label: 'Dataset 2',
+      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      borderColor: 'rgb(53, 162, 235)',
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+    },
+  ],
+};
   return (
     <>
+    <h1>Welcome To Database</h1>
+
       <div className="container contact-page">
         <div className="text-zone">
         <table>
@@ -70,16 +121,18 @@ const Database = () => {
           )
         })}
       </table>
+      </div>
+      </div>
 
+<div className='piechart'>
 
-       <PieChart className='pie' width={700} height={700}>
-          <Pie data={data} dataKey="age" outerRadius={250} fill="green" />
-        </PieChart> 
+<Line  data={data1} />;
+           
 
         
 
         </div>
-      </div>
+      
       <Loader type="pacman" />
     </>
   )
